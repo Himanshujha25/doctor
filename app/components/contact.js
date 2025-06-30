@@ -100,7 +100,7 @@ function Contact() {
             </div>
             <style jsx>{`
                 .contact-container {
-                    max-width: 520px;
+                    width:"100vw"
                     margin: 0px auto;
                     padding: 40px 24px;
                     background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);

@@ -11,7 +11,7 @@ import FAQ from './components/faq'
 
 export default function Home() {
   return (
-    <div>
+    <div  scroll-smooth>
       <Hero />
       <About />
       <Services />
