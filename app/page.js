@@ -11,7 +11,7 @@ import FAQ from './components/faq'
 
 export default function Home() {
   return (
-    <div  scroll-smooth>
+    <div style={{ backgroundColor: '#f5f5f5' }} scroll-smooth>
       <Hero />
       <About />
       <Services />
