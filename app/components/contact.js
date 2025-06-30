@@ -209,6 +209,11 @@ function Contact() {
                         max-width: 100vw;
                     }
                 }
+                 @media (min-width: 1200px) {
+        .contact-container {
+            max-width: 1000px;
+        }
+    }
             `}</style>
             <style jsx global>{`
                 body {
