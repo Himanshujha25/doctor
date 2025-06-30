@@ -102,10 +102,10 @@ function Contact() {
             </div>
             <style jsx>{`
                 .contact-container {
-                    width: 100vw;
-                    max-width: 100vw;
+                    width: 100%;
+                    max-width: 600px;
+                    margin: 0 auto;
                     box-sizing: border-box;
-                    margin: 0px;
                     background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
                     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
                     border: 1px solid #e3e8f0;
@@ -188,7 +188,7 @@ function Contact() {
                 @media (min-width: 600px) {
                     .contact-container {
                         padding: 48px 40px;
-                        max-width: 100vw;
+                        max-width: 600px;
                     }
                     .contact-title {
                         font-size: 2.5rem;
@@ -196,7 +196,7 @@ function Contact() {
                 }
                 @media (min-width: 900px) {
                     .contact-container {
-                        max-width: 100vw;
+                        max-width: 600px;
                         padding: 56px 64px;
                     }
                     .contact-title {
@@ -208,6 +208,11 @@ function Contact() {
                         padding: 24px 8px;
                         max-width: 100vw;
                     }
+                }
+            `}</style>
+            <style jsx global>{`
+                body {
+                    overflow-x: hidden;
                 }
             `}</style>
         </div>
