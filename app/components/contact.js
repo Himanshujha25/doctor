@@ -24,89 +24,91 @@ function Contact() {
     };
 
     return (
-        <div className="contact-container" id='contact'>
-            <h2 className="contact-title">Contact the Doctor</h2>
-            <p className="contact-desc">
-                Please fill out the form below to get in touch with the doctor. We value your privacy and will respond promptly.
-            </p>
-            {submitted ? (
-                <div className="contact-success">
-                    Thank you for reaching out! Your message has been sent.
+        <div className=''>
+            <div className="contact-container" id='contact'>
+                <h2 className="contact-title">Contact the Doctor</h2>
+                <p className="contact-desc">
+                    Please fill out the form below to get in touch with the doctor. We value your privacy and will respond promptly.
+                </p>
+                {submitted ? (
+                    <div className="contact-success">
+                        Thank you for reaching out! Your message has been sent.
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label>Full Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={form.name}
+                                onChange={handleChange}
+                                required
+                                placeholder="Your Name"
+                                onFocus={e => e.target.style.borderColor = '#1976d2'}
+                                onBlur={e => e.target.style.borderColor = '#cfd8dc'}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Email Address</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                                placeholder="you@example.com"
+                                onFocus={e => e.target.style.borderColor = '#1976d2'}
+                                onBlur={e => e.target.style.borderColor = '#cfd8dc'}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Message</label>
+                            <textarea
+                                name="message"
+                                value={form.message}
+                                onChange={handleChange}
+                                required
+                                rows={5}
+                                placeholder="How can we help you?"
+                                onFocus={e => e.target.style.borderColor = '#1976d2'}
+                                onBlur={e => e.target.style.borderColor = '#cfd8dc'}
+                            />
+                        </div>
+                        <div className="captcha-group">
+                            <input
+                                type="checkbox"
+                                id="captcha"
+                                checked={captchaChecked}
+                                onChange={handleCaptchaChange}
+                                required
+                            />
+                            <label htmlFor="captcha">
+                                I am not a robot
+                            </label>
+                        </div>
+                        <button
+                            type="submit"
+                            disabled={!captchaChecked}
+                            className="submit-btn"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                )}
+                <div className="contact-footer">
+                    Or email us directly at <a href="mailto:info@oakpsychology.com">info@oakpsychology.com</a>
                 </div>
-            ) : (
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label>Full Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={form.name}
-                            onChange={handleChange}
-                            required
-                            placeholder="Your Name"
-                            onFocus={e => e.target.style.borderColor = '#1976d2'}
-                            onBlur={e => e.target.style.borderColor = '#cfd8dc'}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Email Address</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            required
-                            placeholder="you@example.com"
-                            onFocus={e => e.target.style.borderColor = '#1976d2'}
-                            onBlur={e => e.target.style.borderColor = '#cfd8dc'}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Message</label>
-                        <textarea
-                            name="message"
-                            value={form.message}
-                            onChange={handleChange}
-                            required
-                            rows={5}
-                            placeholder="How can we help you?"
-                            onFocus={e => e.target.style.borderColor = '#1976d2'}
-                            onBlur={e => e.target.style.borderColor = '#cfd8dc'}
-                        />
-                    </div>
-                    <div className="captcha-group">
-                        <input
-                            type="checkbox"
-                            id="captcha"
-                            checked={captchaChecked}
-                            onChange={handleCaptchaChange}
-                            required
-                        />
-                        <label htmlFor="captcha">
-                            I am not a robot
-                        </label>
-                    </div>
-                    <button
-                        type="submit"
-                        disabled={!captchaChecked}
-                        className="submit-btn"
-                    >
-                        Send Message
-                    </button>
-                </form>
-            )}
-            <div className="contact-footer">
-                Or email us directly at <a href="mailto:doctor@example.com">doctor@example.com</a>
             </div>
             <style jsx>{`
                 .contact-container {
-                    width:"100vw"
-                    margin: 0px auto;
-                    padding: 40px 24px;
+                    width: 100vw;
+                    max-width: 100vw;
+                    box-sizing: border-box;
+                    margin: 0px;
                     background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
                     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
                     border: 1px solid #e3e8f0;
-                    border-radius: 16px;
                 }
                 .contact-title {
                     text-align: center;
@@ -186,7 +188,7 @@ function Contact() {
                 @media (min-width: 600px) {
                     .contact-container {
                         padding: 48px 40px;
-                        max-width: 600px;
+                        max-width: 100vw;
                     }
                     .contact-title {
                         font-size: 2.5rem;
@@ -194,7 +196,7 @@ function Contact() {
                 }
                 @media (min-width: 900px) {
                     .contact-container {
-                        max-width: 700px;
+                        max-width: 100vw;
                         padding: 56px 64px;
                     }
                     .contact-title {
@@ -204,6 +206,7 @@ function Contact() {
                 @media (max-width: 480px) {
                     .contact-container {
                         padding: 24px 8px;
+                        max-width: 100vw;
                     }
                 }
             `}</style>
